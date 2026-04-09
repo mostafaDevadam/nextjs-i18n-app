@@ -24,24 +24,23 @@ export default function LanguageSwitcher() {
 
     //if (newLocale === currentLocale) return;
     setState(newLocale);
-    console.log({newLocale, currentLocale, currentPath, c: currentPath})
+    console.log({ newLocale, currentLocale, currentPath, c: currentPath })
 
-    if(currentPath?.split('/')[2] == undefined && currentPath?.split('/')[1] != undefined){
-      console.log("currentPath?.split('/')[2]", currentPath)
-      router.replace("/"+currentPath?.split('/')[1], { locale: newLocale });
+    if (currentPath?.split('/')[2] == undefined && currentPath?.split('/')[1] != undefined) {
+      router.replace("/" + currentPath?.split('/')[1], { locale: newLocale });
     }
 
-    if(newLocale && currentPath?.split('/')[2] != undefined) {
-      router.replace("/"+currentPath?.split('/')[2], { locale: newLocale });
+    if (newLocale && currentPath?.split('/')[2] != undefined) {
+      router.replace("/" + currentPath?.split('/')[2], { locale: newLocale });
     }
 
-    
+
 
     //router.push(cleanPath, { locale: newLocale });
 
-    
 
-    
+
+
 
     // Option 2: If you need to preserve query params
     // const currentPath = pathname;
@@ -84,7 +83,7 @@ export default function LanguageSwitcher() {
       >
         Français
       </Link>*/}
-     {/* <button
+      {/* <button
         onClick={() => handleChange('en')}
         className={`px-3 py-1 rounded ${currentLocale === 'en'
             ? 'bg-blue-500 text-white'
@@ -116,6 +115,7 @@ export default function LanguageSwitcher() {
         <option value="en">English</option>
         <option value="fr">French</option>
         <option value="ar">العربية</option>
+        <option value="de">Deutsch</option>
 
       </select>
     </div>

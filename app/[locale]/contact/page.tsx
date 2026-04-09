@@ -12,7 +12,7 @@ const t = await getTranslations();
     <div>
       
       <h2>{t("greeting")}</h2>
-      <p>This is the about page.</p>
+      <p>This is the contact page.</p>
     </div>
   );
 }
