@@ -80,6 +80,16 @@ export default function LanguageSwitcher() {
       >
         Français
       </button>
+      <button
+        onClick={() => handleChange('ar')}
+        className={`px-3 py-1 rounded ${
+          currentLocale === 'ar' 
+            ? 'bg-blue-500 text-white' 
+            : 'bg-gray-200'
+        }`}
+      >
+        العربية
+      </button>
     </div>
   );
 }

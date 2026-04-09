@@ -5,12 +5,13 @@ import fs from 'fs';
 
 import enMessages from '../messages/en.json';
 import frMessages from '../messages/fr.json';
-
+import arMessages from '../messages/ar.json';
 
 
 const messagesMap = {
     en: enMessages,
     fr: frMessages,
+    ar: arMessages,
 };
 
 
