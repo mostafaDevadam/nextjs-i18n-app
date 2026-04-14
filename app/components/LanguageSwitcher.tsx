@@ -29,7 +29,7 @@ export default function LanguageSwitcher() {
     router.replace(cutLocale(currentPath), { locale: newLocale });
 
     
-
+    /*
     if (currentPath?.split('/')[2] == undefined && currentPath?.split('/')[1] != undefined) {
       //router.replace("/" + currentPath?.split('/')[1], { locale: newLocale });
     }
@@ -40,7 +40,7 @@ export default function LanguageSwitcher() {
 
     if (newLocale && currentPath?.split('/')[3] != undefined && currentPath?.split('/')[3] != undefined) { 
       //router.replace("/" + currentPath?.split('/')[2] +"/"+currentPath?.split('/')[3], { locale: newLocale });
-    }
+    }*/
 
     //router.push(cleanPath, { locale: newLocale });
 

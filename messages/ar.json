@@ -3,9 +3,11 @@
   "greeting": "مرحبا",
   "about": "عن",
   "switchLanguage": "تغير اللغة",
- "nav": {
+  "nav": {
     "home": "الرئيسية",
     "about": "حول",
-    "contact": "اتصل بنا"
+    "contact": "اتصل بنا",
+    "team-contact": "تواصل الفريق",
+    "team-story": "قصة الفريق"
   }
 }

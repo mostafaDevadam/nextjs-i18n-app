@@ -3,9 +3,11 @@
   "greeting": "Hallo",
   "about": "Über uns",
   "switchLanguage": "Sprache wechseln",
- "nav": {
+  "nav": {
     "home": "Startseite",
     "about": "Über uns",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "team-contact": "Teamkontakt",
+    "team-story": "Teamgeschichte"
   }
 }

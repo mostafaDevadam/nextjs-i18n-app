@@ -1,3 +1,4 @@
+import { fetchData } from '@/app/api/user.api';
 import { getID } from '@/lib/id';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
@@ -11,11 +12,13 @@ const t = await getTranslations();
  const id = await getID('user_id');
      console.log("id", id)
 
+      const data = await (await fetchData()).data
+
   return (
     <div>
       
       <h2>{t("greeting")}</h2>
-      <p>This is the team contact page.</p>
+      <p>This is the team contact page. {data.length ?? 0}</p>
     </div>
   );
 }

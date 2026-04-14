@@ -6,18 +6,47 @@ export default createMiddleware(routing);
 
 // src/proxy.ts
 import { getLocale, getTranslations } from 'next-intl/server';
-
+/*
 export async function proxyFetch(endpoint: string, options: RequestInit = {}) {
   const locale = await getLocale();
 
   const headers = new Headers(options.headers);
   // Tell your backend which language the user is viewing
   headers.set('Accept-Language', locale);
+  headers.set('Content-Type', 'application/json');
 
-  return fetch(`${process.env.BACKEND_URL}${endpoint}`, {
+  if (!process.env.BACKEND_URL) throw new Error('BACKEND_URL not set');
+
+
+  return fetch(`${process.env.BACKEND_URL}/${endpoint}`, {
     ...options,
     headers,
   });
+}
+*/
+export async function proxyFetch(endpoint: string, options: RequestInit = {}) {
+  if (!process.env.BACKEND_URL) throw new Error('BACKEND_URL not set');
+  const base = process.env.BACKEND_URL.replace(/\/+$/, '');
+  const url = `${base}/${endpoint.replace(/^\/+/, '')}`;
+
+  const locale = await getLocale();
+  const headers = new Headers(options.headers || {});
+  headers.set('Accept-Language', locale);
+  headers.set('Content-Type', 'application/json');
+
+  const controller = options.signal ? undefined : new AbortController();
+  const signal = options.signal ?? controller?.signal;
+  const timeoutMs = (options as any).timeout ?? 10000;
+  const timeout = controller ? setTimeout(() => controller.abort(), timeoutMs) : undefined;
+
+  try {
+    return await fetch(url, { ...options, headers, signal });
+  } catch (err) {
+    (err as Error).message = `proxyFetch failed: ${(err as Error).message} (url=${url})`;
+    throw err;
+  } finally {
+    if (timeout) clearTimeout(timeout);
+  }
 }
 
 

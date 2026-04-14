@@ -6,6 +6,8 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+     "team-contact": "Team Contact",
+     "team-story": "Team Story"
   }
 }

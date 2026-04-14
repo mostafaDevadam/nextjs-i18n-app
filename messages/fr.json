@@ -6,6 +6,8 @@
   "nav": {
     "home": "Accueil",
     "about": "À propos",
-    "contact": "Contact"
+    "contact": "Contact",
+     "team-contact": "Contact de l'équipe",
+     "team-story": "Histoire de l'équipe"
   }
 }
