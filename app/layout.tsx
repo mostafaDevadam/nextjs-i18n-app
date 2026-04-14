@@ -14,26 +14,25 @@ export const metadata = {
 
 type Props = {
    children: ReactNode; 
-   params: Promise<{ locale: string }>
+   //params: Promise<{ locale: string }>
   
   };
 
 // Using segment param `lang` via folder-based routing is optional.
 // Here we will rely on Next.js i18n routing (locale detection) and access locale via headers/cookies.
-export default async function RootLayout({ children, params }: Props) {
+export default async function RootLayout({ children }: Props) {
 
-  const { locale } = await params;
+  /*const { locale } = await params;
     setRequestLocale(locale);
- const messages = await getMessages();
+ const messages = await getMessages();*/
 
 
   return (
-    <html lang={locale}>
-      <body>
-        <NextIntlClientProvider locale={locale} messages={messages} key={locale}>
-          <Navbar />
-          <main style={{ padding: 12 }}>{children}</main>
-        </NextIntlClientProvider>
+    <html >
+      <body>{children}
+        {/*<NextIntlClientProvider >
+         
+        </NextIntlClientProvider>*/}
       </body>
     </html>
   );

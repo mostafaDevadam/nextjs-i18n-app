@@ -2,5 +2,10 @@
   "siteTitle": "تطبيقى",
   "greeting": "مرحبا",
   "about": "عن",
-  "switchLanguage": "تغير اللغة"
+  "switchLanguage": "تغير اللغة",
+ "nav": {
+    "home": "الرئيسية",
+    "about": "حول",
+    "contact": "اتصل بنا"
+  }
 }

@@ -2,5 +2,10 @@
   "siteTitle": "Mon appli Next",
   "greeting": "Bonjour",
   "about": "À propos",
-  "switchLanguage": "Changer de langue"
+  "switchLanguage": "Changer de langue",
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact"
+  }
 }

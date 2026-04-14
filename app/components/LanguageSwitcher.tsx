@@ -24,28 +24,35 @@ export default function LanguageSwitcher() {
 
     //if (newLocale === currentLocale) return;
     setState(newLocale);
-    console.log({ newLocale, currentLocale, currentPath, c: currentPath })
+    console.log({ newLocale, currentLocale, currentPath, c: cutLocale(currentPath) });
+
+    router.replace(cutLocale(currentPath), { locale: newLocale });
+
+    
 
     if (currentPath?.split('/')[2] == undefined && currentPath?.split('/')[1] != undefined) {
-      router.replace("/" + currentPath?.split('/')[1], { locale: newLocale });
+      //router.replace("/" + currentPath?.split('/')[1], { locale: newLocale });
     }
 
-    if (newLocale && currentPath?.split('/')[2] != undefined) {
-      router.replace("/" + currentPath?.split('/')[2], { locale: newLocale });
+    if (newLocale && currentPath?.split('/')[2] != undefined && currentPath?.split('/')[3] == undefined) {
+      //router.replace("/" + currentPath?.split('/')[2], { locale: newLocale });
     }
 
-
+    if (newLocale && currentPath?.split('/')[3] != undefined && currentPath?.split('/')[3] != undefined) { 
+      //router.replace("/" + currentPath?.split('/')[2] +"/"+currentPath?.split('/')[3], { locale: newLocale });
+    }
 
     //router.push(cleanPath, { locale: newLocale });
-
-
-
-
 
     // Option 2: If you need to preserve query params
     // const currentPath = pathname;
     // router.replace(currentPath, { locale: newLocale });
   };
+
+
+  function cutLocale(path: string) {
+  return path.replace(/^\/?(ar|en|de|fr)(?=\/|$)/, "");
+}
 
 
   // Remove the current locale from the path to get the clean path

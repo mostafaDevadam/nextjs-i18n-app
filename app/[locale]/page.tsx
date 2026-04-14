@@ -2,6 +2,7 @@ import { getLocale, getMessages, getTranslations, setRequestLocale } from 'next-
 import React from 'react'
 import LanguageSwitcher from '../components/LanguageSwitcher';
 import { Link } from '@/i18n/navigation';
+import { getID } from '@/lib/id';
 
 type Props = {
     params: Promise<{ locale: string }>;
@@ -22,6 +23,9 @@ const HomePage = async ({ params }: Props) => {
 
     console.log("locale messages", messages)
     console.log("locale locale", locale)
+
+     const id = await getID('user_id');
+     console.log("id", id)
 
     return (
         <div>
